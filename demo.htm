@@ -1,0 +1,132 @@
+<h3>Normal var_dump :</h3><pre class='xdebug-var-dump' dir='ltr'><small>boolean</small> <font color='#75507b'>true</font>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>int</small> <font color='#4e9a06'>123</font>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>float</small> <font color='#f57900'>12.345</font>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'asdf'</font> <i>(length=4)</i>
+</pre><h3>tidy_dump:</h3><br/><style>
+								table {
+								    border-collapse: collapse;
+								}table, td, th {
+								    border: 1px solid black;
+								    text-align: center;
+								}.boolean-th{ background-color: #75507B; color: white; };</style><table>
+				<thead>
+					<tr>
+						<th class='boolean-th'>
+							BOOLEAN
+						</th>
+					</tr>
+				</tead>
+				<tbody>
+					<tr>
+						<td>
+							true
+						</td>
+					</tr>
+				</tbody>
+			</table><br/><style>
+								table {
+								    border-collapse: collapse;
+								}table, td, th {
+								    border: 1px solid black;
+								    text-align: center;
+								}.integer-th{ background-color: #00BFFF; color: white; };</style><table>
+				<thead>
+					<tr>
+						<th class='integer-th'>
+							INTEGER
+						</th>
+					</tr>
+				</tead>
+				<tbody>
+					<tr>
+						<td>
+							123
+						</td>
+					</tr>
+				</tbody>
+			</table><br/><style>
+								table {
+								    border-collapse: collapse;
+								}table, td, th {
+								    border: 1px solid black;
+								    text-align: center;
+								}.double-th{ background-color: #F57900; color: white; };</style><table>
+				<thead>
+					<tr>
+						<th class='double-th'>
+							FLOAT
+						</th>
+					</tr>
+				</tead>
+				<tbody>
+					<tr>
+						<td>
+							12.345
+						</td>
+					</tr>
+				</tbody>
+			</table><br/><style>
+								table {
+								    border-collapse: collapse;
+								}table, td, th {
+								    border: 1px solid black;
+								    text-align: center;
+								}.string-th{ background-color: #CC0000; color: white; };</style><table>
+				<thead>
+					<tr>
+						<th class='string-th'>
+							STRING
+						</th>
+					</tr>
+				</tead>
+				<tbody>
+					<tr>
+						<td>
+							asdf
+						</td>
+					</tr>
+				</tbody>
+			</table><br/><h3>var_dump and tidy_dump of array :</h3><pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=7)</i>
+  'one' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>1</font>
+  'two' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>2</font>
+  'three' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>3</font>
+  4 <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=3)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>1</font>
+      1 <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>2</font>
+      2 <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>3</font>
+  'five' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=4)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'one'</font> <i>(length=3)</i>
+      1 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'two'</font> <i>(length=3)</i>
+      2 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'three'</font> <i>(length=5)</i>
+      4 <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          0 <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>1</font>
+          1 <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>2</font>
+          2 <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>3</font>
+  'six' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>6</font>
+  'seven' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>7</font>
+</pre><br/><table><thead><tr><th colspan='2' class='array-multi-th'>ARRAY(7)</th></tr></thead><tbody><tr><th>Key</th><th>Value</th></tr><tr><td>one</td><td>1</td></tr><tr><td>two</td><td>2</td></tr><tr><td>three</td><td>3</td></tr><tr><td>4</td><td><table><thead><tr><th colspan='2' class='array-single-th'>ARRAY(3)</th></tr></thead><tbody><tr><th>Key</th><th>Value</th></tr><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>2</td></tr><tr><td>2</td><td>3</td></tr></tbody></table></td></tr><tr><td>five</td><td><table><thead><tr><th colspan='2' class='array-multi-th'>ARRAY(4)</th></tr></thead><tbody><tr><th>Key</th><th>Value</th></tr><tr><td>0</td><td>one</td></tr><tr><td>1</td><td>two</td></tr><tr><td>2</td><td>three</td></tr><tr><td>4</td><td><table><thead><tr><th colspan='2' class='array-single-th'>ARRAY(3)</th></tr></thead><tbody><tr><th>Key</th><th>Value</th></tr><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>2</td></tr><tr><td>2</td><td>3</td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td>six</td><td>6</td></tr><tr><td>seven</td><td>7</td></tr></tbody></table><style>
+								table {
+								    border-collapse: collapse;
+								}table, td, th {
+								    border: 1px solid black;
+								}th {
+								    text-align: center;
+								}td {
+								    text-align: left;
+								    padding:5px 5px 5px 5px;
+								}.array-multi-th{ background-color: #0000FF; color: white; }.array-single-th{ background-color: #4E9A06; color: white; };</style><h3>tidy_dump of &#36;_SERVER :</h3><table><thead><tr><th colspan='2' class='array-single-th'>ARRAY(34)</th></tr></thead><tbody><tr><th>Key</th><th>Value</th></tr><tr><td>HTTP_HOST</td><td>localhost</td></tr><tr><td>HTTP_USER_AGENT</td><td>Mozilla/5.0 (Windows NT 6.1; rv:47.0) Gecko/20100101 Firefox/47.0</td></tr><tr><td>HTTP_ACCEPT</td><td>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</td></tr><tr><td>HTTP_ACCEPT_LANGUAGE</td><td>en-US,en;q=0.5</td></tr><tr><td>HTTP_ACCEPT_ENCODING</td><td>gzip, deflate</td></tr><tr><td>HTTP_CONNECTION</td><td>keep-alive</td></tr><tr><td>HTTP_CACHE_CONTROL</td><td>max-age=0</td></tr><tr><td>PATH</td><td>C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;</td></tr><tr><td>SystemRoot</td><td>C:\Windows</td></tr><tr><td>COMSPEC</td><td>C:\Windows\system32\cmd.exe</td></tr><tr><td>PATHEXT</td><td>.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</td></tr><tr><td>WINDIR</td><td>C:\Windows</td></tr><tr><td>SERVER_SIGNATURE</td><td><address>Apache/2.4.9 (Win32) PHP/5.5.12 Server at localhost Port 80</address>
+</td></tr><tr><td>SERVER_SOFTWARE</td><td>Apache/2.4.9 (Win32) PHP/5.5.12</td></tr><tr><td>SERVER_NAME</td><td>localhost</td></tr><tr><td>SERVER_ADDR</td><td>127.0.0.1</td></tr><tr><td>SERVER_PORT</td><td>80</td></tr><tr><td>REMOTE_ADDR</td><td>127.0.0.1</td></tr><tr><td>DOCUMENT_ROOT</td><td>C:/wamp/www/</td></tr><tr><td>REQUEST_SCHEME</td><td>http</td></tr><tr><td>CONTEXT_PREFIX</td><td></td></tr><tr><td>CONTEXT_DOCUMENT_ROOT</td><td>C:/wamp/www/</td></tr><tr><td>SERVER_ADMIN</td><td>admin@example.com</td></tr><tr><td>SCRIPT_FILENAME</td><td>C:/wamp/www/tidy_dump/test.php</td></tr><tr><td>REMOTE_PORT</td><td>49665</td></tr><tr><td>GATEWAY_INTERFACE</td><td>CGI/1.1</td></tr><tr><td>SERVER_PROTOCOL</td><td>HTTP/1.1</td></tr><tr><td>REQUEST_METHOD</td><td>GET</td></tr><tr><td>QUERY_STRING</td><td></td></tr><tr><td>REQUEST_URI</td><td>/tidy_dump/test.php</td></tr><tr><td>SCRIPT_NAME</td><td>/tidy_dump/test.php</td></tr><tr><td>PHP_SELF</td><td>/tidy_dump/test.php</td></tr><tr><td>REQUEST_TIME_FLOAT</td><td>1468442558.539</td></tr><tr><td>REQUEST_TIME</td><td>1468442558</td></tr></tbody></table><style>
+								table {
+								    border-collapse: collapse;
+								}table, td, th {
+								    border: 1px solid black;
+								}th {
+								    text-align: center;
+								}td {
+								    text-align: left;
+								    padding:5px 5px 5px 5px;
+								}.array-multi-th{ background-color: #0000FF; color: white; }.array-single-th{ background-color: #4E9A06; color: white; };</style>

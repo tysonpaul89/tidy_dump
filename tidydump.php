@@ -243,7 +243,13 @@ class tidydump
 		{
 			$style			.= "table, td, th {
 								    border: 1px solid black;
+								}";
+			$style			.= "th {
 								    text-align: center;
+								}";
+			$style			.= "td {
+								    text-align: left;
+								    padding:5px 5px 5px 5px;
 								}";
 		}
 		else
