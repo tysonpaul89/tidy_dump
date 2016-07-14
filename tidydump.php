@@ -12,15 +12,18 @@ class tidydump
 		switch($type)
 		{
 			case 'boolean'	:
-			case 'integer'	:
-			case 'double' 	:
-			case 'string' 	:
+			case 'integer' 	:
+			case 'double'  	:
+			case 'string'  	:
 				$this->PrettySimpleDataTypes($mixVar);
 				break;
-			case 'array' 	:
+			case 'array'   	:
 				$this->PrettyArrayDataTypes($mixVar);
 				break;
-			default 		:
+			case 'object'  	:
+				$this->PrettyObjectDataTypes($mixVar);
+				break;
+			default 	   	:
 				$this->PrettyVarDump($mixVar);
 				break;
 		}
@@ -68,13 +71,10 @@ class tidydump
 				break;
 			//}}
 			default 		:
-			//{{
-				
-			//}}
-					break;
+				break;
 		}
 
-		$style = $this->getStyleSheet($varType);
+		$style 				= $this->getStyleSheet($varType);
 
 		echo $style;
 
@@ -96,9 +96,11 @@ class tidydump
 			</table>");
 	}
 	/**
-	 * Displays beautified var_dump of sequential, multidimensional and associative arrays.
-	 * This is achived by looping the array and converting key value pair of array into html table
+	 * Displays beautified var_dump of arrays data type.
+	 * This is achieved by looping the array and converting key value pair of array into HTML table.
+	 * Simple arrays will have a green color header and multidimensional array will have a blue color header.
 	 * @param array $mixVar
+	 * @return  string created HTML table 
 	 */
 	private function PrettyArrayDataTypes($mixVar)
 	{
@@ -112,7 +114,20 @@ class tidydump
 		}
 
 		$result 		.= $this->GetTableFooter();
-		$result 		.= $this->getStyleSheet('array');
+		$result 		.= $this->getStyleSheet(gettype($mixVar));
+
+		echo $result;
+	}
+
+	/**
+	 * Displays beautified var_dump of object data type.
+	 * @param mixed $mixVar
+	 * @return  string created HTML table
+	 */
+	private function PrettyObjectDataTypes($mixVar)
+	{
+		$result = "";
+		$result .= $this->PrettyArrayDataTypes($mixVar);
 
 		echo $result;
 	}
@@ -140,42 +155,41 @@ class tidydump
 	 */
 	private function CheckAndAppendLoopValues($key, $mixValue)
 	{
-		$result = "";
+		$result 			= "";
+		$result 			.= "<tr>";
+		$result 			.= "<td>$key</td>";
+		$result 			.= "<td>";
 
-		
-		$result .= "<tr>";
-			$result .= "<td>$key</td>";
-			$result .= "<td>";
-
-			if(!is_array($mixValue))
-			{
-				$result .= $mixValue;
+			
+			if(!is_array($mixValue) && !is_object($mixValue))
+			{	
+				$result 	.= $mixValue;
 			}
 			else
-			{	$result .= $this->GetTableHeader($mixValue);
-				$result .= $this->LoopInnerArray($mixValue);
-				$result .= $this->GetTableFooter();
+			{	$result 	.= $this->GetTableHeader($mixValue);
+				$result 	.= $this->LoopInnerArray($mixValue);
+				$result 	.= $this->GetTableFooter();
 				
 			}
-			$result .= "</td>";
+			$result 		.= "</td>";
 			/* Commented showing Data type since its not relevant  
-			$result .= "<td>".strtoupper(gettype($mixValue))."</td>"; */
-		$result .= "</tr>";
-				
+			$result 		.= "<td>".strtoupper(gettype($mixValue))."</td>"; */
 
+		$result 			.= "</tr>";
+				
 		return $result;
 	}
 
 	/**
 	 * Converts Key value pair of child array to HTML table
-	 * @param array $array child array
+	 * @param array $mixVar child array
 	 * @return sting created HTML child table
 	 */
-	private function LoopInnerArray($array)
+	private function LoopInnerArray($mixVar)
 	{	
-		$result = "";
+		$result 	= "";
 
-		foreach($array as $key => $value)
+		foreach($mixVar as $key => $value)
 		{	
 			$result .=  $this->CheckAndAppendLoopValues($key, $value);
 		}
@@ -185,28 +199,38 @@ class tidydump
 
 	/**
 	 * Gets HTML table header part to beautify array
-	 * @param   array   $array array to be beautify
+	 * @param   array   $mixVar array to be beautify
 	 * @return  string  converted HTML table header part
 	 */
-	private function GetTableHeader($array)
+	private function GetTableHeader($mixVar)
 	{
-		$result = "";
+		$result 		= "";
+		$type 			= gettype($mixVar);
+		$size 			= "";
 
-		$arrayDime = $this->GetDimension($array);
+		if($type == 'object')
+		{
+			$mixVarDime = 'object';
+		}
+		else
+		{	
+			$mixVarDime = $this->GetDimension($mixVar);
+			$size 		.= "(".sizeof($mixVar).")";
+		}			
 
-		$result .= "<table>";
-			$result .= "<thead>";
-				$result .= "<tr>";
-					$result .= "<th colspan='2' class='array-".$arrayDime."-th'>".strtoupper(gettype($array))."(".sizeof($array).")</th>";
-			$result .= "</tr>";
-			$result .= "</thead>";
-			$result .= "<tbody>";
-				$result .= "<tr>";
-					$result .= "<th>Key</th>";
-					$result .= "<th>Value</th>";
-					/* Commented showing Data type since its not relevant
-					$result .= "<th>Data Type</th>"; */
-				$result .= "</tr>";
+		$result 		.= "<table>";
+		$result 		.= "<thead>";
+		$result 		.= "<tr>";
+		$result 		.= "<th colspan='2' class='array-".$mixVarDime."-th'>".strtoupper($type)."".$size."</th>";
+		$result 		.= "</tr>";
+		$result 		.= "</thead>";
+		$result 		.= "<tbody>";
+		$result 		.= "<tr>";
+		$result 		.= "<th>Key</th>";
+		$result 		.= "<th>Value</th>";
+		/* Commented showing Data type since its not relevant
+		$result .= "<th>Data Type</th>"; */
+		$result 		.= "</tr>";
 
 		return $result;
 	}
@@ -217,10 +241,9 @@ class tidydump
 	 */
 	private function GetTableFooter()
 	{
-		$result = "";
-
-			$result .= "</tbody>";
-		$result .= "</table>";
+		$result 	= "";
+		$result 	.= "</tbody>";
+		$result 	.= "</table>";
 
 		return $result;
 	}
@@ -239,7 +262,7 @@ class tidydump
 		
 		
 
-		if($type == 'array')
+		if($type == 'array' || $type == 'object')
 		{
 			$style			.= "table, td, th {
 								    border: 1px solid black;
@@ -264,7 +287,7 @@ class tidydump
 		switch($type)
 		{
 			case 'boolean'	:
-				$style 		.= ".boolean-th{ background-color: #75507B; color: white; };";
+				$style 		.= ".boolean-th{ background-color: #BF00FF; color: white; };";
 				break;
 			case 'integer'	:
 				$style 		.= ".integer-th{ background-color: #00BFFF; color: white; };";
@@ -276,8 +299,10 @@ class tidydump
 				$style 		.= ".string-th{ background-color: #CC0000; color: white; };";
 				break;
 			case 'array'	:
+			case 'object'	:
 				$style 		.= ".array-multi-th{ background-color: #0000FF; color: white; }";
-				$style 		.= ".array-single-th{ background-color: #4E9A06; color: white; };";
+				$style 		.= ".array-single-th{ background-color: #4E9A06; color: white; }";
+				$style 		.= ".array-object-th{ background-color: #BFBFBF; color: white; };";
 				break;
 			default 		:
 				break;
@@ -289,22 +314,34 @@ class tidydump
 	}
 	/**
 	 * Gets the dimension of an array
-	 * @param  array  $array
+	 * @param  array  $mixVar
 	 * @return string dimension of the array
 	 */
-	private function GetDimension($array)
+	private function GetDimension($mixVar)
 	{	
-		$dimension 		= "";
-		$normCount 		= sizeof($array);
-		$recurCount 	= count($array,1);
+		$dimension 				= "";
+		$normCount 				= sizeof($mixVar);
+		$recurCount 			= count($mixVar,1);
 
 		if($normCount == $recurCount)
-		{
-			$dimension 	= "single";        
+		{	
+			$isSingle 			= 1;
+			$dimension 			= "single";
+
+			foreach($mixVar as $key=>$value)
+			{
+				$type 			= gettype($value);
+
+				if($type == 'array' || $type == 'object')
+					$isSingle 	= 0;
+			}
+
+			if(!$isSingle)
+				$dimension 		= "multi";        
 		}
 		else
 		{
-			$dimension 	= "multi";          
+			$dimension 			= "multi";          
 		}
 
 		return $dimension;
