@@ -15,6 +15,8 @@ class tidydump
 			case 'integer' 	:
 			case 'double'  	:
 			case 'string'  	:
+			case 'NULL'  	:
+			case 'resource' :
 				$this->PrettySimpleDataTypes($mixVar);
 				break;
 			case 'array'   	:
@@ -30,7 +32,7 @@ class tidydump
 	}
 
 	/**
-	 * Displays beautified var_dump of variable types boolean, integer, double and string.
+	 * Displays beautified var_dump of variable types boolean, integer, double, string, null and resource.
 	 * @param   mixed  $mixVar 
 	 * 
 	 */
@@ -68,6 +70,18 @@ class tidydump
 			case 'string'	:
 			//{{
 				$class 		= "string-th";
+				break;
+			//}}
+			case 'NULL'		:
+			//{{
+				$class 		= "null-th";
+				$value 		= "null";
+				break;
+			//}}
+			case 'resource'	:
+			//{{
+				$class 		= "resource-th";
+				$value 		= get_resource_type($mixVar);
 				break;
 			//}}
 			default 		:
@@ -297,6 +311,12 @@ class tidydump
 				break;
 			case 'string'	:
 				$style 		.= ".string-th{ background-color: #CC0000; color: white; };";
+				break;
+			case 'NULL'	:
+				$style 		.= ".null-th{ background-color: #996666; color: white; };";
+				break;
+			case 'resource'	:
+				$style 		.= ".resource-th{ background-color: #FFB3B3; color: white; };";
 				break;
 			case 'array'	:
 			case 'object'	:

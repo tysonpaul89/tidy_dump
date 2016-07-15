@@ -2,6 +2,8 @@
 </pre><pre class='xdebug-var-dump' dir='ltr'><small>int</small> <font color='#4e9a06'>123</font>
 </pre><pre class='xdebug-var-dump' dir='ltr'><small>float</small> <font color='#f57900'>12.345</font>
 </pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'asdf'</font> <i>(length=4)</i>
+</pre><pre class='xdebug-var-dump' dir='ltr'><font color='#3465a4'>null</font>
+</pre><pre class='xdebug-var-dump' dir='ltr'><b>resource</b>(<i>3</i><font color='#2e3436'>,</font> <i>mysql link</i>)
 </pre><h3>tidy_dump:</h3><br/><style>
 								table {
 								    border-collapse: collapse;
@@ -86,6 +88,48 @@
 						</td>
 					</tr>
 				</tbody>
+			</table><br/><style>
+								table {
+								    border-collapse: collapse;
+								}table, td, th {
+								    border: 1px solid black;
+								    text-align: center;
+								}.null-th{ background-color: #996666; color: white; };</style><table>
+				<thead>
+					<tr>
+						<th class='null-th'>
+							NULL
+						</th>
+					</tr>
+				</tead>
+				<tbody>
+					<tr>
+						<td>
+							null
+						</td>
+					</tr>
+				</tbody>
+			</table><br/><style>
+								table {
+								    border-collapse: collapse;
+								}table, td, th {
+								    border: 1px solid black;
+								    text-align: center;
+								}.resource-th{ background-color: #FFB3B3; color: white; };</style><table>
+				<thead>
+					<tr>
+						<th class='resource-th'>
+							RESOURCE
+						</th>
+					</tr>
+				</tead>
+				<tbody>
+					<tr>
+						<td>
+							mysql link
+						</td>
+					</tr>
+				</tbody>
 			</table><br/><h3>var_dump and tidy_dump of array :</h3><pre class='xdebug-var-dump' dir='ltr'>
 <b>array</b> <i>(size=7)</i>
   'one' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>1</font>
@@ -119,7 +163,7 @@
 								    text-align: left;
 								    padding:5px 5px 5px 5px;
 								}.array-multi-th{ background-color: #0000FF; color: white; }.array-single-th{ background-color: #4E9A06; color: white; }.array-object-th{ background-color: #BFBFBF; color: white; };</style><h3>tidy_dump of &#36;_SERVER :</h3><table><thead><tr><th colspan='2' class='array-single-th'>ARRAY(34)</th></tr></thead><tbody><tr><th>Key</th><th>Value</th></tr><tr><td>HTTP_HOST</td><td>localhost</td></tr><tr><td>HTTP_USER_AGENT</td><td>Mozilla/5.0 (Windows NT 6.1; rv:47.0) Gecko/20100101 Firefox/47.0</td></tr><tr><td>HTTP_ACCEPT</td><td>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</td></tr><tr><td>HTTP_ACCEPT_LANGUAGE</td><td>en-US,en;q=0.5</td></tr><tr><td>HTTP_ACCEPT_ENCODING</td><td>gzip, deflate</td></tr><tr><td>HTTP_CONNECTION</td><td>keep-alive</td></tr><tr><td>HTTP_CACHE_CONTROL</td><td>max-age=0</td></tr><tr><td>PATH</td><td>C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;</td></tr><tr><td>SystemRoot</td><td>C:\Windows</td></tr><tr><td>COMSPEC</td><td>C:\Windows\system32\cmd.exe</td></tr><tr><td>PATHEXT</td><td>.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</td></tr><tr><td>WINDIR</td><td>C:\Windows</td></tr><tr><td>SERVER_SIGNATURE</td><td><address>Apache/2.4.9 (Win32) PHP/5.5.12 Server at localhost Port 80</address>
-</td></tr><tr><td>SERVER_SOFTWARE</td><td>Apache/2.4.9 (Win32) PHP/5.5.12</td></tr><tr><td>SERVER_NAME</td><td>localhost</td></tr><tr><td>SERVER_ADDR</td><td>127.0.0.1</td></tr><tr><td>SERVER_PORT</td><td>80</td></tr><tr><td>REMOTE_ADDR</td><td>127.0.0.1</td></tr><tr><td>DOCUMENT_ROOT</td><td>C:/wamp/www/</td></tr><tr><td>REQUEST_SCHEME</td><td>http</td></tr><tr><td>CONTEXT_PREFIX</td><td></td></tr><tr><td>CONTEXT_DOCUMENT_ROOT</td><td>C:/wamp/www/</td></tr><tr><td>SERVER_ADMIN</td><td>admin@example.com</td></tr><tr><td>SCRIPT_FILENAME</td><td>C:/wamp/www/tidy_dump/test.php</td></tr><tr><td>REMOTE_PORT</td><td>49199</td></tr><tr><td>GATEWAY_INTERFACE</td><td>CGI/1.1</td></tr><tr><td>SERVER_PROTOCOL</td><td>HTTP/1.1</td></tr><tr><td>REQUEST_METHOD</td><td>GET</td></tr><tr><td>QUERY_STRING</td><td></td></tr><tr><td>REQUEST_URI</td><td>/tidy_dump/test.php</td></tr><tr><td>SCRIPT_NAME</td><td>/tidy_dump/test.php</td></tr><tr><td>PHP_SELF</td><td>/tidy_dump/test.php</td></tr><tr><td>REQUEST_TIME_FLOAT</td><td>1468527633.775</td></tr><tr><td>REQUEST_TIME</td><td>1468527633</td></tr></tbody></table><style>
+</td></tr><tr><td>SERVER_SOFTWARE</td><td>Apache/2.4.9 (Win32) PHP/5.5.12</td></tr><tr><td>SERVER_NAME</td><td>localhost</td></tr><tr><td>SERVER_ADDR</td><td>127.0.0.1</td></tr><tr><td>SERVER_PORT</td><td>80</td></tr><tr><td>REMOTE_ADDR</td><td>127.0.0.1</td></tr><tr><td>DOCUMENT_ROOT</td><td>C:/wamp/www/</td></tr><tr><td>REQUEST_SCHEME</td><td>http</td></tr><tr><td>CONTEXT_PREFIX</td><td></td></tr><tr><td>CONTEXT_DOCUMENT_ROOT</td><td>C:/wamp/www/</td></tr><tr><td>SERVER_ADMIN</td><td>admin@example.com</td></tr><tr><td>SCRIPT_FILENAME</td><td>C:/wamp/www/tidy_dump/test.php</td></tr><tr><td>REMOTE_PORT</td><td>50849</td></tr><tr><td>GATEWAY_INTERFACE</td><td>CGI/1.1</td></tr><tr><td>SERVER_PROTOCOL</td><td>HTTP/1.1</td></tr><tr><td>REQUEST_METHOD</td><td>GET</td></tr><tr><td>QUERY_STRING</td><td></td></tr><tr><td>REQUEST_URI</td><td>/tidy_dump/test.php</td></tr><tr><td>SCRIPT_NAME</td><td>/tidy_dump/test.php</td></tr><tr><td>PHP_SELF</td><td>/tidy_dump/test.php</td></tr><tr><td>REQUEST_TIME_FLOAT</td><td>1468609078.731</td></tr><tr><td>REQUEST_TIME</td><td>1468609078</td></tr></tbody></table><style>
 								table {
 								    border-collapse: collapse;
 								}table, td, th {
