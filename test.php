@@ -1,11 +1,15 @@
 <?php
+
 // Data Types
 $a_bool     = TRUE;   	// a boolean
 $a_integer  = 123;   	// an integer
 $a_float    = 12.345;   // a float
 $a_string   = "asdf";   // a string
 $a_null     = NULL;   	// a NULL
-$a_resource = mysql_connect();   	// a resource
+$obj = new \stdClass();
+$obj->name = 'test';
+$obj->data = ['one', 'two', 'tree'];
+$a_resource = $obj;   	// a resource
 
 // an Array
 $a_array   = array("one" => 1, "two" => 2, "three" => 3, 4 => array(1,2,3), "five" => array("one", "two", "three",4 => array(1,2,3)), "six" => 6, "seven" => 7);
