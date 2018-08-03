@@ -19,7 +19,3 @@ Also our brain can quickly recognize a graphical presentation of data than a tex
 
 Thus my project is to graphically represent var_dump() data so that developer can easy understand it.
 
-
-Note:
-------
-- For Queries email to tysonpaul89@gmail.com
